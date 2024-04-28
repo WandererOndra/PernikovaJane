@@ -18,7 +18,7 @@ const posters = [
       height: '1414'
     },
     {
-      imageUrl: '/tabs2.png',
+      imageUrl: '/tabs2.jpeg',
       year: '2022',
       title: 'Boj o Hněvkov.',
       info: 'Buch buch buch… Slyšíte, jak v dálce znějí bubny? Připlouváme k ostrovu, který je nejspíše obsazen domorodými kmeny. V soubojích s nimi mohou obstát jen ti nejsilnější, nechytřejší a nejobratnější z vás. Máš dostatek odvahy na souboje mezi jednotlivými kmeny? Dokážeš s rozvahou a chladnou hlavou vyluštit šifry, skládačky a zároveň ze sebe vydat veškerou energii? Dokážeš přežít v přírodě a zvládneš okamžité změny počasí? Pak je letošní tábor právě pro tebe! Neváhej a přihlas se na nejlepší tábor letošních prázdnin. Boj o Hněvkov právě začíná…',
