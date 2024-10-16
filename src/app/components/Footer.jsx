@@ -9,9 +9,9 @@ export default function Footer() {
                 <div className="flex-none w-1/3">
                     <p className=" text-xs xs:text-base">&copy; K.O.T.V.A. 2024 </p>
                 </div>
-                <div className="w-1/3 text-center">
-                    <Link href="/pages/Gdpr" className="text-sm xs:text-base md:hidden">GDPR</Link>
-                    <Link href="/pages/Gdpr" className="text-sm xs:text-base hidden md:block">Ochrana osobních údajů</Link>
+                <div className="w-1/3 text-center transitionBtn">
+                    <Link href="/pages/Gdpr" className="text-sm xs:text-base md:hidden hover:text-blue-300">GDPR</Link>
+                    <Link href="/pages/Gdpr" className="text-sm xs:text-base hidden md:block hover:text-blue-300">Ochrana osobních údajů</Link>
                 </div>
                 <div className="w-1/3">
                     <div className="flex justify-end gap-4">

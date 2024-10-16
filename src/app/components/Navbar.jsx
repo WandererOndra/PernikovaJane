@@ -46,6 +46,7 @@ export default function Navbar() {
                         <div className="ml-4 flex items-center space-x-4">
                             <Link href="/" className="btnMenu transitionBtn">Domů</Link>
                             <Link href="/pages/About" className="btnMenu transitionBtn">O nás</Link>
+                            <Link href="/pages/Fun" className="btnMenu transitionBtn">Zábava</Link>
                             <Link href="/pages/Camps" className="btnMenu transitionBtn">Tábor</Link>
                             <Link href="/pages/Gallery" className="btnMenu transitionBtn">Galerie</Link>
                             <Link href="/pages/Contact" className="btnMenu transitionBtn">Kontakt</Link>
@@ -73,6 +74,7 @@ export default function Navbar() {
                     <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col items-end sm:px-3">
                     <Link href="/" className="btnMenu block" onClick={handleClick}>Domů</Link>
                     <Link href="/pages/About" className="btnMenu block" onClick={handleClick}>O nás</Link>
+                    <Link href="/pages/Fun" className="btnMenu block" onClick={handleClick}>Zábava</Link>
                     <Link href="/pages/Camps" className="btnMenu block" onClick={handleClick}>Tábor</Link>
                     <Link href="/pages/Gallery" className="btnMenu block" onClick={handleClick}>Galerie</Link>
                     <Link href="/pages/Contact" className="btnMenu block" onClick={handleClick}>Kontakt</Link>
