@@ -4,7 +4,7 @@ const posters = [
       imageUrl: '/tabs5.png',
       year: '2025',
       title: 'Údolí věčného slunce',
-      info: 'Vydej se s námi do světa indiánských dobrodružství! Letní tábor volá všechny malé i velké odvážlivce, kteří se nebojí objevovat tajemství přírody, učit se dovednosti starých indiánủ a zažít nezapomenutelné chvíle u táborového ohne. Ceká nás týden plný her, příběhù, zpěvu, stopování a kamarádství. Přidej se k nám a stañ se součástí indiánského kmene!',
+      info: '🔅Vydej se s námi do světa indiánských dobrodružství!✨🏕️Letošní letní tábor volá všechny malé i velké odvážlivce, kteří se nebojí objevovat tajemství přírody, 🐾 učit se dovednosti starých indiánů 🪶 a zažít nezapomenutelné chvíle u táborového ohně.🔥Čeká nás týden plný her, příběhů, zpěvu, stopování a kamarádství.🤩👉🏻 Přidej se k nám a staň se součástí indiánského kmene! 🗿🪘🍗',
       actual: 'Přihláška již brzy zde!',
       width: '800',
       height: '1105'
