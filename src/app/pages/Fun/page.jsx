@@ -10,7 +10,7 @@ export default function Fun() {
   const images = [
     "/knihovna.PNG", // Current event
     "/museum.jpg",
-    "/kviz.png", 
+    "/kviz.PNG",
     "/vanoce.png",  
     "/stopovacka.png",
   ];

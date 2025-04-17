@@ -1,11 +1,19 @@
 
 const posters = [
     {
+      imageUrl: '/tabs5.png',
+      year: '2025',
+      title: 'Údolí věčného slunce',
+      info: 'Vydej se s námi do světa indiánských dobrodružství! Letní tábor volá všechny malé i velké odvážlivce, kteří se nebojí objevovat tajemství přírody, učit se dovednosti starých indiánủ a zažít nezapomenutelné chvíle u táborového ohne. Ceká nás týden plný her, příběhù, zpěvu, stopování a kamarádství. Přidej se k nám a stañ se součástí indiánského kmene!',
+      actual: 'Přihláška již brzy zde!',
+      width: '800',
+      height: '1105'
+    },  
+    {
         imageUrl: '/tabs4.png',
         year: '2024',
         title: 'Země čar a kouzel',
         info: 'Vážený pane, vážená slečno! Jsme hrdi, že vás můžeme informovat o tom, že jste byl přijat do školy čar a kouzel v Bradavicích… Jak často jste snili o tom, že vám tento legendární dopis přijde a vy tak budete moci zažít velké kouzelné dobrodružství? Letos se vám tento sen může splnit. Pojeďte s námi do Hněvkova a přidejte se do soutěže čtyř kolejí. Čekají na vás velké kouzelnické nástrahy, ale také spousta legrace a nových zážitků. Možná se setkáte i s tím, jehož jméno nesmíme vyslovit… Dokážeme vše zvládnout a nadobro se zbavit pána zla?',
-        actual: 'Děkujeme za obrovský zájem, ale ná tábor se již nelze přihlásit.',
         width: '800',
         height: '1132'
       },
