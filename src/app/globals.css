@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 .btnMenu {
-    @apply text-black hover:bg-blue-300 hover:text-white rounded-lg p-2 uppercase transition ease-out duration-300 whitespace-nowrap;
+    @apply text-white hover:bg-amber-100 hover:text-yellow-700 rounded-lg p-2 uppercase transition ease-out duration-300 whitespace-nowrap;
 }
 main {
-    @apply bg-blue-300 text-white min-h-screen;
+    @apply bg-amber-100 text-yellow-700 min-h-screen;
 }
 
 .contactItem {

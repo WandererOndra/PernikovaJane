@@ -9,17 +9,17 @@ export default function Home() {
       <div className="flex items-center flex-col sm:flex-row justify-between gap-5 pt-5">
         <div className="flex flex-none sm:w-2/3 lg:w-1/2 text-center">
           <h1 className="text-5xl sm:text-6xl leading-tight md:text-8xl font-bold">
-            Vítejte na našich nových stránkách!
+            Vítejte na mém e-shopu s perníčky!
           </h1>
         </div>
         <div className="flex">
           <Image 
-            src="/kotva.png"
+            src="/Logo.png"
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: '200px', height: 'auto' }}
-            alt="Obrázek kotvy"
+            style={{ width: '350px', height: 'auto' }}
+            alt="Logo"
             priority={true}
           />
         </div>

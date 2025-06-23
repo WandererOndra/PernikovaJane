@@ -21,22 +21,21 @@ export default function Navbar() {
 
   return (
     <>
-        <nav className="bg-white sticky top-0 z-50">
+        <nav className="bg-orange-300 sticky top-0 z-50">
             <div className="mx-2 sm:mx-auto px-0 sm:px-4 py-4 md:px-6 lg:mx-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image 
-                                    src="/logokotva.png" 
+                                    src="/Logo.png" 
                                     width={50}
                                     height={50}
                                     alt="logo kotvy" 
                                     />                               
                                 <div className={domine.className}>
                                     <div className="flex flex-col pl-4">
-                                        <span className="text-4xl sm:text-5xl">K.O.T.V.A.</span>
-                                        <small className="uppercase opacity-50 hidden sm:flex">Kralická organizace tvorby volnočasových aktivit</small>
+                                        <span className="text-4xl sm:text-5xl text-yellow-700">Perníková Jane</span>
                                     </div>
                                 </div>
                             </Link>
@@ -45,15 +44,15 @@ export default function Navbar() {
                     <div className="hidden md:block">
                         <div className="ml-4 flex items-center space-x-4">
                             <Link href="/" className="btnMenu transitionBtn">Domů</Link>
-                            <Link href="/pages/About" className="btnMenu transitionBtn">O nás</Link>
-                            <Link href="/pages/Fun" className="btnMenu transitionBtn">Zábava</Link>
-                            <Link href="/pages/Camps" className="btnMenu transitionBtn">Tábor</Link>
+                            <Link href="/pages/About" className="btnMenu transitionBtn">O mně</Link>
+                            <Link href="/pages/Fun" className="btnMenu transitionBtn">E-SHOP</Link>
+                            <Link href="/pages/Camps" className="btnMenu transitionBtn">Kurzy</Link>
                             <Link href="/pages/Gallery" className="btnMenu transitionBtn">Galerie</Link>
                             <Link href="/pages/Contact" className="btnMenu transitionBtn">Kontakt</Link>
                         </div>
                     </div>
                     <div className="md:hidden flex items-center">
-                        <button className="inline-flex items-center justify-center p-2 rounded-lg text-blue-300 hover:text-white hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-300 transition ease-out duration-300"
+                        <button className="inline-flex items-center justify-center p-2 rounded-lg text-yellow-700 hover:text-yellow-700 hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-300 transition ease-out duration-300"
                         onClick={toggleNavbar}>
                             {isClicked ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -70,12 +69,12 @@ export default function Navbar() {
                 </div>
             </div>
             {isClicked && (
-                <div className="md:hidden bg-white sm:w-64 py-4 px-4 absolute top-20 right-0 rounded-b-lg">
+                <div className="md:hidden bg-orange-300 sm:w-64 py-4 px-4 absolute top-20 right-0 rounded-b-lg">
                     <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col items-end sm:px-3">
                     <Link href="/" className="btnMenu block" onClick={handleClick}>Domů</Link>
-                    <Link href="/pages/About" className="btnMenu block" onClick={handleClick}>O nás</Link>
-                    <Link href="/pages/Fun" className="btnMenu block" onClick={handleClick}>Zábava</Link>
-                    <Link href="/pages/Camps" className="btnMenu block" onClick={handleClick}>Tábor</Link>
+                    <Link href="/pages/About" className="btnMenu block" onClick={handleClick}>O Mně</Link>
+                    <Link href="/pages/Fun" className="btnMenu block" onClick={handleClick}>E-SHOP</Link>
+                    <Link href="/pages/Camps" className="btnMenu block" onClick={handleClick}>Kurzy</Link>
                     <Link href="/pages/Gallery" className="btnMenu block" onClick={handleClick}>Galerie</Link>
                     <Link href="/pages/Contact" className="btnMenu block" onClick={handleClick}>Kontakt</Link>
                     </div>

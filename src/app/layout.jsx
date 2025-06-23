@@ -8,8 +8,8 @@ import Footer from "./components/Footer";
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Web Kotvy",
-  description: "Webová stránka organizace KOTVA",
+  title: "Pernikova Jane",
+  description: "E-shop Pernikova Jane",
 };
 
 export default function RootLayout({ children }) {
