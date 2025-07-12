@@ -7,11 +7,11 @@ export default function Footer() {
         <div className="mx-auto px-4 py-2 sm:py-4 sm:px-6 lg:mx-8 flex justify-between items-center">
             
                 <div className="flex-none w-1/3">
-                    <p className=" text-xs xs:text-base">&copy; JanasCakes 2025 </p>
+                    
                 </div>
                 <div className="w-1/3 text-center transitionBtn">
-                    <Link href="/pages/Gdpr" className="text-sm xs:text-base md:hidden hover:text-yellow-700">GDPR</Link>
-                    <Link href="/pages/Gdpr" className="text-sm xs:text-base hidden md:block hover:text-yellow-700">Ochrana osobních údajů</Link>
+                    <Link href="/Gdpr" className="text-sm xs:text-base md:hidden hover:text-yellow-700">GDPR</Link>
+                    <Link href="/Gdpr" className="text-sm xs:text-base hidden md:block hover:text-yellow-700">Ochrana osobních údajů</Link>
                 </div>
                 <div className="w-1/3">
                     <div className="flex justify-end gap-4">

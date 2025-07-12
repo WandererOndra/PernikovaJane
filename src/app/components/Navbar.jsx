@@ -44,11 +44,11 @@ export default function Navbar() {
                     <div className="hidden md:block">
                         <div className="ml-4 flex items-center space-x-4">
                             <Link href="/" className="btnMenu transitionBtn">Domů</Link>
-                            <Link href="/pages/About" className="btnMenu transitionBtn">O mně</Link>
-                            <Link href="/pages/Fun" className="btnMenu transitionBtn">E-SHOP</Link>
-                            <Link href="/pages/Camps" className="btnMenu transitionBtn">Kurzy</Link>
-                            <Link href="/pages/Gallery" className="btnMenu transitionBtn">Galerie</Link>
-                            <Link href="/pages/Contact" className="btnMenu transitionBtn">Kontakt</Link>
+                            <Link href="/About" className="btnMenu transitionBtn">O mně</Link>
+                            <Link href="/Shop" className="btnMenu transitionBtn">E-SHOP</Link>
+                            <Link href="/Extra" className="btnMenu transitionBtn">Extra</Link>
+                            <Link href="/Gallery" className="btnMenu transitionBtn">Galerie</Link>
+                            <Link href="/Contact" className="btnMenu transitionBtn">Kontakt</Link>
                         </div>
                     </div>
                     <div className="md:hidden flex items-center">
@@ -72,11 +72,11 @@ export default function Navbar() {
                 <div className="md:hidden bg-orange-300 sm:w-64 py-4 px-4 absolute top-20 right-0 rounded-b-lg">
                     <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col items-end sm:px-3">
                     <Link href="/" className="btnMenu block" onClick={handleClick}>Domů</Link>
-                    <Link href="/pages/About" className="btnMenu block" onClick={handleClick}>O Mně</Link>
-                    <Link href="/pages/Fun" className="btnMenu block" onClick={handleClick}>E-SHOP</Link>
-                    <Link href="/pages/Camps" className="btnMenu block" onClick={handleClick}>Kurzy</Link>
-                    <Link href="/pages/Gallery" className="btnMenu block" onClick={handleClick}>Galerie</Link>
-                    <Link href="/pages/Contact" className="btnMenu block" onClick={handleClick}>Kontakt</Link>
+                    <Link href="/About" className="btnMenu block" onClick={handleClick}>O Mně</Link>
+                    <Link href="/Shop" className="btnMenu block" onClick={handleClick}>E-SHOP</Link>
+                    <Link href="/Extra" className="btnMenu block" onClick={handleClick}>Extra</Link>
+                    <Link href="/Gallery" className="btnMenu block" onClick={handleClick}>Galerie</Link>
+                    <Link href="/Contact" className="btnMenu block" onClick={handleClick}>Kontakt</Link>
                     </div>
                 </div>
             )}
