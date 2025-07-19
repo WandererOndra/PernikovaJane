@@ -1,11 +1,12 @@
-import { Open_Sans } from "next/font/google";
+//layout.jsx
+import { Raleway } from "next/font/google";
 import "./globals.css";
 
 //Components
 import Navbar from './components/Navbar'
 import Footer from "./components/Footer";
 
-const openSans = Open_Sans({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Pernikova Jane",
@@ -15,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={openSans.className}>
+      <body className={raleway.className}>
       <Navbar/>
       {children}
       <Footer/>

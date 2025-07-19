@@ -6,7 +6,7 @@ export const products = [
     image: '/images/cake-pop.jpg', // Replace with your image path
     price: 100,
     salePrice: 89.90, // Optional sale price
-    date: '2025-06-01',
+    category: 'girls',
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ export const products = [
     image: '/images/cupcake.jpg',
     price: 399,
     salePrice: null, // No sale price
-    date: '2025-05-15',
+    category: 'girls',
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ export const products = [
     image: '/images/marcipan-egg.jpg',
     price: 150,
     salePrice: 125,
-    date: '2025-07-01',
+    category: 'boys',
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ export const products = [
     image: '/images/rainbow-cupcake.jpg',
     price: 200,
     salePrice: null,
-    date: '2025-04-20',
+    category: 'prague',
   },
 ];
 

@@ -1,6 +1,12 @@
+/* golabl.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* global font*/
+body {
+  @apply font-raleway;
+}
 
 .btnMenu {
     @apply text-white hover:bg-amber-100 hover:text-yellow-700 rounded-lg p-2 uppercase transition ease-out duration-300 whitespace-nowrap;
@@ -24,3 +30,14 @@ main {
 .conText {
     @apply pb-5 md:pb-16 md:text-xl;
 }
+
+/* main page */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 2s ease-out;
+}
+

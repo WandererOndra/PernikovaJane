@@ -96,7 +96,7 @@ export default function Cart() {
     <div className="container mx-auto px-4 py-8 lg:px-32">
       <Toaster position="top-center" reverseOrder={false} />
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Košík</h1>
-      <Link href="/shop" className="text-blue-600 hover:underline mb-4 inline-block" aria-label="Zpátky do e-shopu">
+      <Link href="/Shop" className="text-blue-600 hover:underline mb-4 inline-block" aria-label="Zpátky do e-shopu">
         Zpátky do e-shopu
       </Link>
 
