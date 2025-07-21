@@ -32,7 +32,7 @@ export default function Home() {
                 <p className="font-semibold">🎨 Perníkové omalovánky</p>
                 <p>Zábava pro malé i velké!</p>
                 <p className="mt-2">
-                  Ručně vyráběné perníčky za žitné mouky a medu.
+                  Ručně vyráběné perníčky ze žitné mouky a medu.
                 </p>
                 <p>
                   Vymalujte si vlastní perníček nebo si nechte připravit sadu pro
