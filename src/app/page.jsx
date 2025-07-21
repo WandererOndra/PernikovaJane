@@ -15,15 +15,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className=" flex items-center justify-center">
-        <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 md:mx-8 lg:mx-16 bg-[url('/bgmain.jpg')] bg-center bg-cover">
-          <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 animate-fade-in">
-              VÍTEJTE VE SVĚTĚ PERNÍKOVÉ JANE!
-            </h1>
-          </div>
-        </div>
-      </section>
+      <section className="flex items-center justify-center">
+  <div className="max-w-5xl w-full mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 md:mx-8 lg:mx-16 bg-[url('/bgmain.jpg')] bg-center bg-cover min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
+  </div>
+</section>
 
       {/* Content Section */}
       <section className="py-16 flex items-center justify-center">
