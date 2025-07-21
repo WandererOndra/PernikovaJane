@@ -53,7 +53,7 @@ export default function Extra() {
           <div className="text-center">
             <Link
               href="/Contact"
-              className="inline-block bg-yellow-700 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-rose-500 transition-colors duration-300"
+              className="inline-block bg-yellow-700 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition-colors duration-300"
               aria-label="Kontaktujte nás pro více informací o workshopech"
             >
               Poptat workshop
@@ -65,7 +65,7 @@ export default function Extra() {
       {/* Posters/Photos Section */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-rose-600 mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-yellow-700 mb-8 text-center">
             Ukázka mých workshopů
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
