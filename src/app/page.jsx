@@ -9,14 +9,14 @@ export default function Home() {
       {/* Hero Section */}
       <section className="flex items-center justify-center">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-700 mb-8 animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-700 my-10 animate-fade-in">
             VÍTEJTE VE SVĚTĚ PERNÍKOVÉ JANE!
           </h1>
         </div>
       </section>
 
       <section className="flex items-center justify-center">
-  <div className="max-w-5xl w-full mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 md:mx-8 lg:mx-16 bg-[url('/bgmain.jpg')] bg-center bg-cover min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
+  <div className="max-w-5xl w-full mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 md:mx-8 lg:mx-16 bg-[url('/bgmain.jpg')] bg-center bg-cover min-h-[100px] sm:min-h-[200px] md:min-h-[300px]">
   </div>
 </section>
 
