@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="flex items-center justify-center">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-700 my-10 animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-700 mb-10 mt-8 animate-fade-in">
             VÍTEJTE VE SVĚTĚ PERNÍKOVÉ JANE!
           </h1>
         </div>
