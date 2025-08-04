@@ -77,7 +77,7 @@ export default function Gdpr() {
                         <div>
                             <h2 className="font-semibold text-base">9. Kontakt pro ochranu údajů</h2>
                             <p>
-                                V případě dotazů nás kontaktujte na e-mailu: [TODO – např. info@mojedomena.cz]
+                                V případě dotazů nás kontaktujte na e-mailu: info@pernikovajane.cz
                             </p>
                         </div>
 
