@@ -25,7 +25,7 @@ export default function Gallery() {
       {/* Hero Section */}
       <section className="min-h-[50vh] flex items-center justify-center">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-rose-600 mb-8 animate-fade-in">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-700 mb-8 animate-fade-in">
             Galerie a recenze
           </h1>
           <p className="text-xl sm:text-2xl text-gray-700 max-w-3xl mx-auto">
@@ -90,7 +90,7 @@ export default function Gallery() {
           </div>
 
           {/* Reviews */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-rose-600 mt-12 mb-6 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-yellow-700 mt-12 mb-6 text-center">
             Recenze
           </h2>
           <div className="flex flex-wrap gap-4 md:gap-6 items-start">

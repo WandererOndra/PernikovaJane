@@ -11,7 +11,7 @@ export default function Extra() {
       {/* Hero Section */}
       <section className="min-h-[50vh] flex items-center justify-center">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-rose-600 mb-8 animate-fade-in">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-700 mb-8 animate-fade-in">
             Mobilní sladké workshopy
           </h1>
           <p className="text-xl sm:text-2xl text-gray-700 max-w-3xl mx-auto">
@@ -24,7 +24,7 @@ export default function Extra() {
       {/* Content Section */}
       <section className="py-16 flex items-center justify-center">
         <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-12 md:mx-8 lg:mx-16">
-          <h2 className="text-2xl sm:text-3xl font-bold text-rose-600 mb-6 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-yellow-700 mb-6 text-center">
             Co nabízíme?
           </h2>
           <div className="text-gray-700 text-lg sm:text-xl leading-relaxed space-y-4 mb-8">
@@ -53,7 +53,7 @@ export default function Extra() {
           <div className="text-center">
             <Link
               href="/Contact"
-              className="inline-block bg-rose-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-rose-500 transition-colors duration-300"
+              className="inline-block bg-yellow-700 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition-colors duration-300"
               aria-label="Kontaktujte nás pro více informací o workshopech"
             >
               Poptat workshop
@@ -65,7 +65,7 @@ export default function Extra() {
       {/* Posters/Photos Section */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-rose-600 mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-yellow-700 mb-8 text-center">
             Ukázka mých workshopů
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

@@ -1,4 +1,4 @@
-// src/app/shop/page.jsx
+// src/app/Shop/page.jsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8,57 +8,59 @@ import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link';
 
 export default function Shop() {
-  const [sortBy, setSortBy] = useState('all'); // Default to 'all' to show all products initially
+  const [sortBy, setSortBy] = useState('all');
   const [cart, setCart] = useState([]);
+  const [isCartLoaded, setIsCartLoaded] = useState(false);
 
-  useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      try {
-        console.log('Načtený košík z localStorage:', JSON.parse(savedCart));
-        setCart(JSON.parse(savedCart));
-      } catch (error) {
-        console.error('Chyba při načítání košíku:', error);
-        setCart([]);
-      }
+useEffect(() => {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) {
+    try {
+      setCart(JSON.parse(savedCart));
+    } catch {
+      setCart([]);
     }
-  }, []);
+  }
+  setIsCartLoaded(true);
+}, []);
 
-  useEffect(() => {
-    console.log('Košík aktualizován:', cart);
+useEffect(() => {
+  if (isCartLoaded) {
     localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+  }
+}, [cart, isCartLoaded]);
+
+
+
 
   const sortedProducts = [...products].filter((product) => {
-    if (sortBy === 'all') return true; // Show all products when 'all' is selected
-    if (sortBy === 'girls') return product.category === 'girls';
-    if (sortBy === 'boys') return product.category === 'boys';
-    if (sortBy === 'easter') return product.category === 'easter';
-    if (sortBy === 'christmas') return product.category === 'christmas';
-    if (sortBy === 'halloween') return product.category === 'halloween';
-    if (sortBy === 'mikulas') return product.category === 'mikulas';
-    if (sortBy === 'prague') return product.category === 'prague';
-    if (sortBy === 'other') return product.category === 'other';
-    return true; // Fallback (should not occur)
+    if (sortBy === 'all') return true;
+    return product.category === sortBy;
   });
 
   const addToCart = (product) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + product.quantity }
-            : item
-        );
-      }
-      return [...prevCart, product];
-    });
-    toast.success(`${product.title} (x${product.quantity}) přidáno do košíku!`);
-  };
+  console.log('Shop: přidávám do košíku produkt:', product);
+  setCart((prevCart) => {
+    const existingItem = prevCart.find((item) => item.id === product.id);
+    if (existingItem) {
+      const updatedCart = prevCart.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + product.quantity }
+          : item
+      );
+      console.log('Shop: produkt již v košíku, aktualizuji množství:', updatedCart);
+      return updatedCart;
+    }
+    console.log('Shop: produkt není v košíku, přidávám nový:', [...prevCart, product]);
+    return [...prevCart, product];
+  });
+  toast.success(`${product.title} (x${product.quantity}) přidáno do košíku!`);
+};
+
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="bg-amber-100">
+    <div className="bg-amber-100 min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <Toaster position="top-center" reverseOrder={false} />
         <div className="flex justify-between items-center mb-6">
@@ -68,14 +70,14 @@ export default function Shop() {
           <Link
             href="/Cart"
             className="inline-block bg-yellow-700 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition-colors duration-300"
-            aria-label={`Zobrazit košík s ${cart.reduce((sum, item) => sum + item.quantity, 0)} položkami`}
+            aria-label={`Zobrazit košík s ${totalItems} položkami`}
           >
-            Košík ({cart.reduce((sum, item) => sum + item.quantity, 0)})
+            🛒 Košík ({totalItems})
           </Link>
         </div>
         <div className="mb-6 flex flex-col sm:flex-row gap-4 items-center">
           <label htmlFor="sort" className="text-sm font-medium text-gray-600">
-            Seřaď:
+            Seřaď podle kategorie:
           </label>
           <select
             id="sort"

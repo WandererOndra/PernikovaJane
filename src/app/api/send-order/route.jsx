@@ -1,49 +1,128 @@
 // app/api/send-order/route.js
 import nodemailer from 'nodemailer';
 
+const rateLimitWindow = 60 * 1000; // 1 minuta
+const maxRequests = 3; // max 3 objednávky za minutu z jedné IP
+const requestLog = new Map();
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const userRequests = requestLog.get(ip) || [];
+  const recentRequests = userRequests.filter((time) => now - time < rateLimitWindow);
+
+  if (recentRequests.length >= maxRequests) {
+    return true;
+  }
+
+  requestLog.set(ip, [...recentRequests, now]);
+  return false;
+}
+
 export async function POST(request) {
   try {
-    const { name, email, address, phone, cart } = await request.json();
+    const ip = request.headers.get("x-forwarded-for") || "unknown";
 
-    // Create transporter (update with your email service credentials)
+    if (isRateLimited(ip)) {
+      return new Response(JSON.stringify({ error: "Too many requests" }), {
+        status: 429,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const { name, email, address, phone, delivery, cart, total } = await request.json();
+
+    //regex validace (stejné jako na frontend)
+    const nameRegex = /^[a-zA-ZÀ-ž\s'-]{2,50}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\+?\d{9,15}$/;
+
+    if (!nameRegex.test(name)) {
+      return new Response(JSON.stringify({ error: 'Invalid name' }), { status: 400 });
+    }
+    if (!emailRegex.test(email)) {
+      return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400 });
+    }
+    if (!phoneRegex.test(phone)) {
+      return new Response(JSON.stringify({ error: 'Invalid phone' }), { status: 400 });
+    }
+    if (delivery === "delivery") {
+      if (!street || street.trim().length < 3) {
+        return new Response(JSON.stringify({ error: "Invalid street" }), { status: 400 });
+        }
+      if (!city || city.trim().length < 2) {
+        return new Response(JSON.stringify({ error: "Invalid city" }), { status: 400 });
+        }
+      if (!zip || !/^[0-9]{3}\s?[0-9]{2}$/.test(zip)) {
+        return new Response(JSON.stringify({ error: "Invalid ZIP code" }), { status: 400 });
+      }
+}
+
+    if (!Array.isArray(cart) || cart.length === 0) {
+      return new Response(JSON.stringify({ error: 'Cart is empty' }), { status: 400 });
+    }
+
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: process.env.SMTP_HOST,
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.EMAIL_USER, // Your email address (e.g., yourbusiness@gmail.com)
-        pass: process.env.EMAIL_PASS, // Your email password or App Password
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
-    // Format cart items for email
     const cartDetails = cart
-      .map(
-        (item) =>
-          `${item.title} (x${item.quantity}) - $${(item.salePrice || item.price).toFixed(2)}`
+      .map((item) =>
+        `${item.title} (x${item.quantity}) - ${(item.salePrice || item.price).toFixed(2)} Kč`
       )
       .join('\n');
-    const total = cart
-      .reduce((sum, item) => sum + (item.salePrice || item.price) * item.quantity, 0)
-      .toFixed(2);
 
-    // Email content
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Your email to receive orders
-      subject: `New Order from ${name}`,
+    // ---- Email pro tebe
+    const ownerMail = {
+      from: `"E-shop Perníková Jane" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER,
+      subject: `Nová objednávka od ${name}`,
       text: `
-        New Order Received:
-        Name: ${name}
-        Email: ${email}
-        Address: ${address}
-        Phone: ${phone}
-        Cart Items:
-        ${cartDetails}
-        Total: $${total}
+Nová objednávka:
+-------------------------
+Jméno: ${name}
+E-mail: ${email}
+Telefon: ${phone}
+Adresa: ${address || "Osobní odběr"}
+Doručení: ${delivery === "delivery" ? `${street}, ${city}, ${zip}` : "Osobní odběr"}
+
+Položky v košíku:
+${cartDetails}
+
+Celková cena: ${total} Kč
       `,
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    // ---- Email pro zákazníka
+    const customerMail = {
+      from: `"E-shop Perníková Jane" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: "Potvrzení objednávky – Perníková Jane",
+      text: `
+Dobrý den ${name},
+
+děkujeme za vaši objednávku! Níže je rekapitulace:
+
+Položky v objednávce:
+${cartDetails}
+
+Doručení: ${delivery === "delivery" ? "Doručení na adresu (90 Kč)" : "Osobní odběr (0 Kč)"}
+Celková cena: ${total} Kč
+
+Brzy vás budeme kontaktovat s potvrzením.
+
+S pozdravem,
+E-shop Perníková Jane
+      `,
+    };
+
+    await transporter.sendMail(ownerMail);
+    await transporter.sendMail(customerMail);
 
     return new Response(JSON.stringify({ message: 'Order sent successfully' }), {
       status: 200,
