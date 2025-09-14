@@ -37,7 +37,7 @@ export default function OP() {
               <h2 className="font-semibold text-base">3. Cena a platební podmínky</h2>
               <p>
                 Cena zboží je uvedena na webových stránkách. Platba je možná
-                převodem na účet nebo hotově při převzetí (dle dohody).
+                převodem na účet nebo hotově při osobním vyzvednití (dle dohody).
               </p>
             </div>
 
