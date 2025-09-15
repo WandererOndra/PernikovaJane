@@ -33,10 +33,19 @@ useEffect(() => {
 
 
 
-  const sortedProducts = [...products].filter((product) => {
-    if (sortBy === 'all') return true;
-    return product.category === sortBy;
-  });
+  const sortedProducts = [...products]
+    .filter((product) => {
+      if (sortBy === 'all') return true;
+      return product.category === sortBy;
+    });
+
+  // pokud je vybráno "all", zamíchej pořadí
+  if (sortBy === 'all') {
+    for (let i = sortedProducts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [sortedProducts[i], sortedProducts[j]] = [sortedProducts[j], sortedProducts[i]];
+    }
+  }
 
   const addToCart = (product) => {
   console.log('Shop: přidávám do košíku produkt:', product);
