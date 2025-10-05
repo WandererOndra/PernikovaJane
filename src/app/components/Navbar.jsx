@@ -2,12 +2,12 @@
 
 "use client"
 
-import { Raleway } from "next/font/google";
+import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const raleway = Raleway({ subsets: ["latin"] });
+const dancingScript = Dancing_Script({ subsets: ["latin", "latin-ext"] });
 
 
 export default function Navbar() {
@@ -35,9 +35,9 @@ export default function Navbar() {
                                     height={50}
                                     alt="logo" 
                                     />                               
-                                <div className={raleway.className}>
+                                <div className={dancingScript.className}>
                                     <div className="flex flex-col pl-4">
-                                        <span className="text-2xl xs:text-3xl sm:text-4xl  text-yellow-700">PERNÍKOVÁ JANE</span>
+                                        <span className="text-2xl xs:text-3xl sm:text-4xl  text-yellow-700 font-bold">Perníková Jane</span>
                                     </div>
                                 </div>
                             </Link>
@@ -47,7 +47,6 @@ export default function Navbar() {
                         <div className="ml-4 flex items-center space-x-4">
                             <Link href="/" className="btnMenu transitionBtn">ŮVOD</Link>
                             <Link href="/Extra" className="btnMenu transitionBtn">Workshopy</Link>
-                            <Link href="/Gallery" className="btnMenu transitionBtn">Galerie</Link>
                             <Link href="/Shop" className="btnMenu transitionBtn">E-SHOP</Link>
                             <Link href="/Contact" className="btnMenu transitionBtn">Kontakt</Link>
                         </div>
@@ -74,7 +73,6 @@ export default function Navbar() {
                     <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col items-end sm:px-3">
                     <Link href="/" className="btnMenu block" onClick={handleClick}>Úvod</Link>
                     <Link href="/Extra" className="btnMenu block" onClick={handleClick}>Workshopy</Link>
-                    <Link href="/Gallery" className="btnMenu block" onClick={handleClick}>Galerie</Link>
                     <Link href="/Shop" className="btnMenu block" onClick={handleClick}>E-SHOP</Link>
                     <Link href="/Contact" className="btnMenu block" onClick={handleClick}>Kontakt</Link>
                     </div>

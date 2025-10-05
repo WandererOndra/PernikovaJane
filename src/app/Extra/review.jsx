@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Review({ title, text }) {
+export default function Review({ title, text, author }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ export default function Review({ title, text }) {
       title={expanded ? 'Skrýt' : 'Ukaž více'}
       className="cursor-pointer p-4 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-200"
     >
-      <h3 className="font-semibold text-gray-800">{title}</h3>
+      <h3 className="font-bold text-gray-800">{title}</h3>
 
       <AnimatePresence mode="wait">
         {expanded ? (
@@ -24,7 +24,8 @@ export default function Review({ title, text }) {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="text-sm text-gray-600 mt-2">{text}</p>
+            <p className="text-sm text-gray-600 mt-2 italic">{text}</p>
+            <p className="text-sm text-gray-600 font-bold mt-2 italic">{author}</p>
           </motion.div>
         ) : (
           <motion.p
@@ -33,7 +34,7 @@ export default function Review({ title, text }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-sm text-gray-600 mt-2 line-clamp-2"
+            className="text-sm text-gray-600 mt-2 line-clamp-2 italic"
           >
             {text}
           </motion.p>

@@ -11,60 +11,63 @@ export default function Shop() {
   const [sortBy, setSortBy] = useState('all');
   const [cart, setCart] = useState([]);
   const [isCartLoaded, setIsCartLoaded] = useState(false);
+  const [displayProducts, setDisplayProducts] = useState(products); // stabilní produkty pro render
 
-useEffect(() => {
-  const savedCart = localStorage.getItem('cart');
-  if (savedCart) {
-    try {
-      setCart(JSON.parse(savedCart));
-    } catch {
-      setCart([]);
+  // načtení košíku z localStorage
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch {
+        setCart([]);
+      }
     }
-  }
-  setIsCartLoaded(true);
-}, []);
+    setIsCartLoaded(true);
+  }, []);
 
-useEffect(() => {
-  if (isCartLoaded) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
-}, [cart, isCartLoaded]);
+  // ukládání košíku do localStorage
+  useEffect(() => {
+    if (isCartLoaded) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }, [cart, isCartLoaded]);
 
-
-
-
-  const sortedProducts = [...products]
-    .filter((product) => {
+  // filtrování + shuffle produktů
+  useEffect(() => {
+    let sorted = [...products].filter((product) => {
       if (sortBy === 'all') return true;
       return product.category === sortBy;
     });
 
-  // pokud je vybráno "all", zamíchej pořadí
-  if (sortBy === 'all') {
-    for (let i = sortedProducts.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [sortedProducts[i], sortedProducts[j]] = [sortedProducts[j], sortedProducts[i]];
+    if (sortBy === 'all') {
+      for (let i = sorted.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [sorted[i], sorted[j]] = [sorted[j], sorted[i]];
+      }
     }
-  }
+
+    setDisplayProducts(sorted);
+  }, [sortBy]);
 
   const addToCart = (product) => {
-  console.log('Shop: přidávám do košíku produkt:', product);
-  setCart((prevCart) => {
-    const existingItem = prevCart.find((item) => item.id === product.id);
-    if (existingItem) {
-      const updatedCart = prevCart.map((item) =>
-        item.id === product.id
-          ? { ...item, quantity: item.quantity + product.quantity }
-          : item
-      );
-      console.log('Shop: produkt již v košíku, aktualizuji množství:', updatedCart);
-      return updatedCart;
-    }
-    console.log('Shop: produkt není v košíku, přidávám nový:', [...prevCart, product]);
-    return [...prevCart, product];
-  });
-  toast.success(`${product.title} (x${product.quantity}) přidáno do košíku!`);
-};
+    console.log('Shop: přidávám do košíku produkt:', product);
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      if (existingItem) {
+        const updatedCart = prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + product.quantity }
+            : item
+        );
+        console.log('Shop: produkt již v košíku, aktualizuji množství:', updatedCart);
+        return updatedCart;
+      }
+      console.log('Shop: produkt není v košíku, přidávám nový:', [...prevCart, product]);
+      return [...prevCart, product];
+    });
+    toast.success(`${product.title} (x${product.quantity}) přidáno do košíku!`);
+  };
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -107,7 +110,7 @@ useEffect(() => {
           </select>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sortedProducts.map((product) => (
+          {displayProducts.map((product) => (
             <Product key={product.id} product={product} addToCart={addToCart} />
           ))}
         </div>

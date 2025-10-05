@@ -4,6 +4,8 @@
 import Link from 'next/link';
 import Poster from './poster';
 import posters from './posters';
+import Review from './review';
+import reviews from './reviews';
 
 export default function Extra() {
   return (
@@ -75,6 +77,21 @@ export default function Extra() {
           </div>
         </div>
       </section>
+      {/* Reviews */}
+      <section className="py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+                <h2 className="text-2xl sm:text-3xl font-bold text-yellow-700 mt-12 mb-6 text-center">
+                  Recenze
+                </h2>
+                <div className="flex flex-wrap gap-4 md:gap-6 items-start">
+                  {reviews.map((review, i) => (
+                    <div key={i} className="w-full md:w-[calc(50%-0.75rem)]">
+                      <Review {...review} />
+                    </div>
+                  ))}
+                </div>
+          </div>
+       </section>
     </main>
   );
 }

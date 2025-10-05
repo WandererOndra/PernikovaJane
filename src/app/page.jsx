@@ -2,6 +2,9 @@
 "use client";
 
 import Image from "next/image";
+import { Dancing_Script } from "next/font/google";
+
+const dancingScript = Dancing_Script({ subsets: ["latin", "latin-ext"] });
 
 export default function Home() {
 const structuredData = {
@@ -34,16 +37,26 @@ const structuredData = {
       {/* Hero Section */}
       <section className="flex items-center justify-center">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-700 mb-10 mt-8 animate-fade-in">
-            VÍTEJTE VE SVĚTĚ PERNÍKOVÉ JANE!
+          <div className={dancingScript.className}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-700 mb-8 mt-10 animate-fade-in">
+            Vítejte ve světě Perníkové Jane!
           </h1>
+          </div>
         </div>
       </section>
 
       <section className="flex items-center justify-center">
-  <div className="max-w-5xl w-full mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 md:mx-8 lg:mx-16 bg-[url('/bgmain.jpg')] bg-center bg-cover min-h-[100px] sm:min-h-[200px] md:min-h-[300px]">
-  </div>
-</section>
+        <div className="w-full flex items-center justify-center px-4 sm:px-6 md:px-8 lg:py-20">
+          <Image
+            src="/Logo.png"
+            alt="Logo Perníková Jane"
+            width={400}
+            height={400}
+            className="rounded-full object-contain w-[60vw] sm:w-[40vw] md:w-[25vw] max-w-[300px] aspect-square"
+            priority
+          />
+        </div>
+      </section>
 
       {/* Content Section */}
       <section className="py-16 flex items-center justify-center">
@@ -57,7 +70,7 @@ const structuredData = {
                 <p className="font-semibold">🎨 Perníkové omalovánky</p>
                 <p>Zábava pro malé i velké!</p>
                 <p className="mt-2">
-                  Ručně vyráběné perníčky ze žitné mouky a medu.
+                  Ručně vyráběné dekrativní perníčky ze žitné mouky a medu.
                 </p>
                 <p>
                   Vymalujte si vlastní perníček nebo si nechte připravit sadu pro

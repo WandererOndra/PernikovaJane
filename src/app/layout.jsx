@@ -19,7 +19,7 @@ export const metadata = {
     siteName: "Perníková Jane",
     images: [
       {
-        url: "https://www.pernikovajane.cz/og-image.jpg", // náhledový obrázek pro soc
+        url: "https://www.pernikovajane.cz/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Ručně zdobené perníčky Perníková Jane",
@@ -34,8 +34,34 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Perníková Jane",
+    image: "https://www.pernikovajane.cz/logo.png",
+    url: "https://www.pernikovajane.cz/",
+    telephone: "+420123456789",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Vaše ulice 123",
+      addressLocality: "Praha",
+      postalCode: "11000",
+      addressCountry: "CZ",
+    },
+    sameAs: [
+      "https://www.facebook.com/pernikovajane",
+      "https://www.instagram.com/pernikovajane",
+    ],
+  };
+
   return (
     <html lang="cs">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body className={raleway.className}>
         <Navbar />
         {children}
