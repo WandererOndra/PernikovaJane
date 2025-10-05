@@ -19,7 +19,7 @@ export const metadata = {
     siteName: "Perníková Jane",
     images: [
       {
-        url: "https://www.pernikovajane.cz/og-image.jpg",
+        url: "https://www.pernikovajane.cz/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ručně zdobené perníčky Perníková Jane",
